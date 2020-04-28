@@ -25,23 +25,51 @@
   </head>
 
   <body>
-    <button>시작</button>
-    <p>멈춤</p>
+
+    <button>Press me</button>
+
     <script>
-      const btn = document.querySelector('button');
-      const txt = document.querySelector('p')
+      let string = 'The revolution will not be televised.';
+      
+      let badString = string;
+      badString;
 
-      btn.addEventListener('click', updateBtn);
+      let result = (badString === string); //true
 
-      function updateBtn() {
-        if(btn.textContent === '시작') {
-          btn.textContent = '멈춤';
-          txt.textContent = '기계가 시작되었습니다.';
-        } else {
-          btn.textContent = '시작';
-          txt.textContent = '기계가 멈췄습니다.';
-        }
+      let bigmouth = 'I\'ve got no right to take my place...';
+
+      let one = 'Hello, ';
+      let two = 'how are you?';
+
+      let join = one + two;
+
+      let multiple = one + one + one + one + two;
+
+      let response = one + 'I am fine — ' + two;
+
+      const button = document.querySelector('button');
+
+      button.onclick = function() {
+        let name = prompt('이름이 무엇입니까?');
+        alert('내 이름은 ' + name + '입니다');
       }
+      //문자열을 Number로 변경
+      // let myString = '123';
+      // let myNum = Number(myString);
+      // typeof myNum;
+
+      //문자열을 String으로 변경
+      let myNum = 123;
+      let myString = String(myNum);
+      typeof myString;
+
+      let examScore = 49;
+      let examHighestScore = 70;
+
+      examReport = `당신의 스코어는 ${ examScore }/${ examHighestScore } 점입니다.
+      (${Math.round((examScore/examHighestScore*100))}%). 
+      ${examScore >= 49 ? '축하합니다 통과했습니다.' : '안타깝지만 통과하지 못했습니다.' } `;
+      //스코어 점수가 49점(70%) 이상이라면? -> 통과 이하라면 -> X
     </script>
 
   </body>
