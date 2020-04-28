@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Number guessing game</title>
+
+    <style>
+      html {
+        font-family: sans-serif;
+      }
+
+      body {
+        width: 50%;
+        max-width: 800px;
+        min-width: 480px;
+        margin: 0 auto;
+      }
+
+      .lastResult {
+        color: white;
+        padding: 3px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>숫자 맞추기 게임(JavaScript)</h1>
+
+    <p>1~100사이의 숫자를 10번 안에 맞춰보세요</p>
+
+    <div class="form">
+      <label for="guessField">숫자 입력 : </label>
+      <input type="text" id="guessField" class="guessField">
+      <input type="submit" value="입력" class="guessSubmit">
+    </div>
+
+    <div class="resultParas">
+      <p class="guesses"></p>
+      <p class="lastResult"></p>
+      <p class="lowOrHi"></p>
+    </div>
+
+    <script>
+      var randomNumber = Math.floor(Math.random()*100)+1; //1과 100사이 랜덤 숫자 발생시키는 변수
+
+      var guesses    = document.querySelector('.guesses'); //첫번째 엘리먼트를 반환(요소가 없다면 null을 반환)
+      var lastResult = document.querySelector('.lastResult');
+      var lowOrhi    = document.querySelector('.lowOrHi');
+
+      var guessSubmit = document.querySelector('.guessSubmit');
+      var guessField  = document.querySelector('.guessField');
+
+      var guessCount = 1; // 시도 횟수
+      var resetButton;
+      guessField.focus(); //focus 입력창을 자동으로사용할수있게끔 깜빡임. 버튼은 엔터를 쳐도 실행가능
+    
+//함수(function)는 재사용이 가능한 코드의 묶음 !
+//한번만 명시를 하면 계속해서 코드에 반복을 줄일 수 있다.
+    function checkGuess() {
+        var userGuess = Number(guessField.value);
+        if (guessCount === 1) { //실행횟수가 1번이라면 아래 내용이 출력됨
+            guesses.textContent = '검증한 숫자 : ';
+        }
+    guesses.textContent += userGuess + ' '; //유저 입력숫자 + 공란을 textContent에 추가한다
+    // => 검증한 숫자 사이의 간격
+
+        if (userGuess === randomNumber) { //정답일때
+            lastResult.textContent = "축하합니다. 승리하였습니다.";
+            lastResult.style.backgroundColor = 'green';
+            lowOrhi.textContent = '';
+            setGameover();
+        } else if (guessCount === 10) { //10번의 기회를 모두 소진했을때(실패)
+            lastResult.textContent = '게임 오버. 패배하였습니다.'
+            setGameover();
+        } else {
+            lastResult.textContent = '틀렸습니다.';
+            lastResult.style.backgroundColor = "red";
+
+            if(userGuess < randomNumber) {//유저의 숫자가 정답보다 적을때
+                lowOrhi.textContent = '숫자가 낮습니다. 더 높은 숫자를 입력하세요'
+            } else if (userGuess > randomNumber) {
+                lowOrhi.textContent = '숫자가 높습니다. 더 낮은 숫자를 입력하세요'
+            }
+        }
+
+        guessCount++; //시도횟수 증가
+        guessField.value = '';
+        guessField.focus();
+    }
+    guessSubmit.addEventListener('click', checkGuess);
+    //guessSubmit 버튼을 누르면 이벤트(checkGuess) 발생
+
+    //게임 오버 함수 입력
+    function setGameover() {
+        guessField.disabled = true;  //숫자를 입력할수없게함.
+        guessSubmit.disabled = true; //버튼을 누를 수 없게함.
+        resetButton = document.createElement('button');//button 요소를 생성함
+        resetButton.textContent = '새게임 시작'; //button에 표시되는 텍스트
+        document.body.appendChild(resetButton);
+        resetButton.addEventListener('click', resetGame);
+    }
+
+    //게임 리셋
+    function resetGame() {
+        guessCount = 1; //시도횟수 초기화
+        //표시된 정보를 모두 초기화한다.
+        var resetParas = document.querySelectorAll('.resultParas p');
+        for(var i=0; i<resetParas.length; i++){
+            resetParas[i].textContent = '';
+        }
+
+        resetButton.parentNode.removeChild(resetButton);
+
+        guessField.disabled = false; //숫자를 입력할수 있게함
+        guessSubmit.disabled = false;//버튼을 누를수있게함
+        guessField.value = '';
+        guessField.focus();
+
+        lastResult.style.backgroundColor = 'white';
+
+        //랜덤함수 다시 지정
+        randomNumber = Math.floor(Math.random() * 100) + 1;
+    }
+    for (var i = 1 ; i < 21 ; i++) { console.log(i) }
+    </script>
+  </body>
+</html>

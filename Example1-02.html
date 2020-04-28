@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Number guessing game</title>
+
+    <style>
+      html {
+        font-family: sans-serif;
+      }
+
+      body {
+        width: 50%;
+        max-width: 800px;
+        min-width: 480px;
+        margin: 0 auto;
+      }
+
+      .lastResult {
+        color: white;
+        padding: 3px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <button>Press me</button>
+    <script>
+        const button = document.querySelector('button');
+        //var myName;
+        //myName = 'Chris'; 를 아래 처럼 줄임
+        // var myName = 'Chris'; //변수를 선언함과 동시에 초기화
+        // var myAge = 28;
+        var myNameArray = ['Chris', 'Bob', 'Jim'];
+        var myAgeArray = [10, 15, 40];
+
+        var dog = {name : 'Mess', breed : 'Dalmatian'};
+
+        button.onclick = function() {
+            let name = prompt('이름이 무엇입니까?');
+            alert('안녕하세요' + name + '. 반갑습니다.')
+        }
+    </script>
+
+  </body>
+</html>

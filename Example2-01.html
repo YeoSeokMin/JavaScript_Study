@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title></title>
+
+    <style>
+      html {
+        font-family: sans-serif;
+      }
+
+      body {
+        width: 50%;
+        max-width: 800px;
+        min-width: 480px;
+        margin: 0 auto;
+      }
+
+      .lastResult {
+        color: white;
+        padding: 3px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <button>시작</button>
+    <p>멈춤</p>
+    <script>
+      const btn = document.querySelector('button');
+      const txt = document.querySelector('p')
+
+      btn.addEventListener('click', updateBtn);
+
+      function updateBtn() {
+        if(btn.textContent === '시작') {
+          btn.textContent = '멈춤';
+          txt.textContent = '기계가 시작되었습니다.';
+        } else {
+          btn.textContent = '시작';
+          txt.textContent = '기계가 멈췄습니다.';
+        }
+      }
+    </script>
+
+  </body>
+</html>
