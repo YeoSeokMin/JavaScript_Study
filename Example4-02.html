@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title></title>
+
+    <style>
+    </style>
+  </head>
+
+  <body>
+
+    <script>
+    let myData = 'Manchester,London,Liverpool,Birmingham,Leeds,Carlisle';
+    let myArray = myData.split(','); // 쉼표(,)로 나누어서 배열 생성 후 myArray에 입력
+    let NewString = myArray.join(','); //쉼표(,)로 나누어진 myArray의 변수를 해제
+    
+    let dogTags = ['Roket : 1234', 'Coco : 4321', 'Flash : 4142', 'Bash : 1266', 'Flash : 1234'];
+    let undogTags = dogTags.toString(); //dogTags의 배열을 쉼표기준(,)으로 변수를 해제한다.
+
+    myArray.push('Card'); //myArray 배열의 마지막에 'Card'값을 추가
+    //(7) ["Manchester", "London", "Liverpool", "Birmingham", "Leeds", "Carlisle", "Card"]
+    myArray.push('Bradford', 'Brighton');//myArray 배열의 마지막에 'Bradford', 'Brighton'값을 추가
+    //(9) ["Manchester", "London", "Liverpool", "Birmingham", "Leeds", "Carlisle", "Card", "Bradford", "Brighton"]
+
+    let newLength = myArray.push('Bristol');
+    // 배열의 새로운 "길이(10)"가 리턴됨과 동시에 myArray 배열의 마지막 값으로 'Bristol 이 입력됨'
+
+    myArray.pop();//myArray의 마지막 배열("Brighton")이 삭제됨
+    //let removedItem = myArray.pop();//myArray의 삭제된 마지막 배열값 하나를("Brighton")을 리턴함.
+    
+    myArray.unshift('Edinburgh'); //myArray의 [0]번째 값에 'Edinburgh'를 추가함.
+
+    let removedItem = myArray.shift(); // unshift로 추가된 값('Edinburgh')을 리턴함
+    </script>
+
+  </body>
+</html>
