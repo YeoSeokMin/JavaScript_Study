@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title></title>
+
+    <style>
+    </style>
+  </head>
+
+  <body>
+
+    <script>
+    var name = 'kittens';
+    if (name == 'puppies') {
+      name += ' woof';
+    } else if (name == 'kittens') {
+      name += ' meow';
+    } else {
+      name += '!';
+    }
+    name == 'kittens meow';
+
+    age = 28;
+    var allowed = (age > 18) ? 'yes' : 'no';
+
+    x = 0;
+    x += 5;
+
+    var obj = {
+    name: 'Carrot',
+    _for: 'Max', // 'for' is a reserved word, use '_for' instead.
+    details: {
+    color: 'orange',
+    size: 12
+    }
+    };
+
+    function Person(name, age){
+      this.name = name;
+      this.age = age;
+    }
+
+    var you = new Person('You', 24); // Person 함수의 name / age를 가져와서 값을 입력(Mysql과 유사)
+
+    obj.name = 'Simon'; // obj의 이름값에 Simon 입력
+    var name = obj.name; // name의 변수값에 obj변수의 name 값 입력 (Simon)
+
+    //대괄호 표기법
+    obj['name'] = 'Simon'; // obj의 이름값에 Simon 입력
+    var name = obj['name']; // name의 변수값에 obj변수의 name 값 입력 (Simon)
+    //변수를 사용하여 키를 정의함
+    var user = prompt('what is your key'); //user의 값을 물어본 후 prompt에 입력
+    obj[user] = prompt('what is your value'); // user값을 값의 제목으로 입력 후 그 제목의 값을 입력
+
+    var a = ['dog', 'cat', 'hen'];
+    a[100] = 'fox';
+    a.length;//101 배열의 길이는 가장 높은 인덱스보다 하나가 크다.
+    ['dog', 'cat', 'hen'].forEach(function(currentValue, index, array){
+      a.push(item);      //배열의 끝에 항목 추가.
+      a.toString();      // toString()각 요소를 쉼표로 구분 하여 문자열을 반환
+      a.toLocaleString();// 각 요소를 쉼표로 구분 하여 문자열을 반환 합니다.
+      // a.concat(item1[, item2[, ...[, itemN]]]) //항목이 추가 된 새 배열을 반환합니다.
+      a.join(sep); //배열을 문자열로 변환합니다. 값은 sep param으로 구분됩니다
+      a.pop();           //마지막 항목을 제거하고 반환합니다.
+      a.shift();         //첫 번째 항목을 제거하고 반환합니다.
+      // a.unshift(item1[, item2[, ...[, itemN]]]) //배열의 시작 부분에 항목을 추가합니다.
+      // a.slice(start[, end]) //	하위 배열을 반환합니다.
+      a.sort([cmpfn]);   //선택적인 비교 기능을 수행합니다.
+      // a.splice(start, delcount[, item1[, ...[, itemN]]]) //섹션을 삭제하고 더 많은 항목으로 교체하여 배열을 수정할 수 있습니다.
+      a.reverse()	//배열을 반대로 바꿉니다.
+
+    });
+
+    </script>
+
+  </body>
+</html>
