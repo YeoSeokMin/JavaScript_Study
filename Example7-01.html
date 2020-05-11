@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title></title>
+
+    <style>
+    </style>
+  </head>
+
+  <body>
+
+    <script>
+    const oneTwoThree = [1,2,3];
+    let result = oneTwoThree.map((v) => {
+      if(v % 2) {
+        return '홀수';
+      } else {
+        return '짝수';
+      }
+    });
+    //야구게임 만들기
+    // var number = [];
+    //   number[0] = Math.floor(Math.random() * 10);
+    //   do {
+    //     number[1] = Math.floor(Math.random() * 10);
+    //   } while(number[1] === number[0])
+    //   do {
+    //     number[2] = Math.floor(Math.random() * 10);
+    //   } while(number[2] === number[0] || number[2] === number[1])
+    //   do {
+    //     number[3] = Math.floor(Math.random() * 10);
+    //   } while(number[3] === number[0] || number[3] === number[1] || number[3] === number[2])
+    
+    var list = [0,1,2,3,4,5,6,7,8,9]; //0~9까지의 숫자 배열(10)을 넣음.
+    var number = [];                  //결과가 들어갈 배열
+    for (var i = 0; i < 4; i++) {
+      var select = Math.floor(Math.random() * list.length); //Math.floor(소수점값을 버림.)
+      console.log('list', list, 'number', number, 'length', list.length);
+      number[i] = list.splice(select, 1)[0]; // splice(배열의 기존요소를 삭제하거나 교체)
+    }
+    </script>
+
+  </body>
+</html>

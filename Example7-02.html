@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title></title>
+
+    <style>
+    </style>
+  </head>
+
+  <body>
+
+    <script>
+    let myMap = new Map()
+
+    let keyString = '문자열'
+    let keyObj = {}
+    let keyFunc = function() {}
+
+    //값
+    myMap.set(keyString, "'문자열'과 관련된 값")
+    myMap.set(keyObj, 'keyObj와 관련된 값')
+    myMap.set(keyFunc, 'keyFunc와 관련된 값')
+
+    myMap.size //3
+
+    myMap.get(keyString) //"'문자열'과 관련된 값"
+    myMap.get(keyObj)    //'keyObj와 관련된 값'
+    myMap.get(keyFunc)   //'keyFunc와 관련된 값'
+
+    myMap.get('문자열')  //"'문자열'과 관련된 값"
+
+
+    myMap.set(NaN, 'not a number')
+
+    myMap.get(NaN);
+
+    let otherNaN = Number('foo')
+    myMap.get(otherNaN)
+
+    myMap.set(0, 'zero')
+    myMap.set(1, 'one')
+
+    for(let [key,value] of myMap) {
+      console.log(key + ' = ' + value);
+    }
+
+    for(let key of myMap.keys()) {
+      console.log(key)
+    }
+
+    for(let value of myMap.values()) {
+      console.log(value)
+    }
+
+    myMap.forEach(function(value, key) {
+      console.log(key + ' = ' + value)
+    })
+    </script>
+
+  </body>
+</html>
